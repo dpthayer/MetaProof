@@ -1,0 +1,26 @@
+#!/usr/bin/env perl
+
+print "\\begin{supertabular}{ll\@{\\qquad}ll}\n";
+
+$eol = "&";
+
+while (<ARGV>) {
+    if (m/^\\newcommand\{\\isasym([A-Za-z]+)\}/) {
+       print "\\verb,\\<$1>, & {\\isasym$1} $eol\n";
+#       print "\\verb,\\<$1>, & \\isactrlbold{\\isasym$1}~{\\isasym$1} $eol\n";
+#       print "\\verb,\\<$1>, & B\\isactrlsup{\\isasym$1} $eol\n";
+#       print "\\verb,\\<$1>, & B\\isactrlsub{\\isasym$1} $eol\n";
+        if ("$eol" eq "&") {
+            $eol = "\\\\";
+        } else {
+            $eol = "&";
+        }
+    }
+}
+
+if ("$eol" eq "\\\\") {
+    print "$eol\n";
+}
+
+print "\\end{supertabular}\n";
+

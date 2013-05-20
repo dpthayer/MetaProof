@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+
+FORMAT="$1"
+VARIANT="$2"
+
+"$ISABELLE_TOOL" logo HOL
+
+cp "$ISABELLE_HOME/src/Doc/ProgProve/MyList.thy" .
+
+"$ISABELLE_HOME/src/Doc/prepare_document" "$FORMAT"
+

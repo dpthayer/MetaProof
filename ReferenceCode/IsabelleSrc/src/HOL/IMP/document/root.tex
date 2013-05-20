@@ -1,0 +1,38 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{isabelle,isabellesym}
+\usepackage{latexsym}
+% this should be the last package used
+\usepackage{pdfsetup}
+
+% snip
+\newcommand{\repeatisanl}[1]{\ifnum#1=0\else\isanewline\repeatisanl{\numexpr#1-1}\fi}
+\newcommand{\snip}[4]{\repeatisanl#2#4\repeatisanl#3}
+
+\urlstyle{rm}
+\isabellestyle{it}
+
+\renewcommand{\isacharunderscore}{\_}
+\renewcommand{\isacharunderscorekeyword}{\_}
+
+% for uniform font size
+\renewcommand{\isastyle}{\isastyleminor}
+
+\begin{document}
+
+\title{Concrete Semantics}
+\author{TN \& GK}
+\maketitle
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+\newpage
+
+% generated text of all theories
+\input{session}
+
+\nocite{Nipkow}
+
+\bibliographystyle{abbrv}
+\bibliography{root}
+
+\end{document}
